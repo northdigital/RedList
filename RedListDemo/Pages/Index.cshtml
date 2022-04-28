@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "RedisListTools Demo";
+}
+
+<form method="post" asp-page-handler="FlushDb">
+  <button>Flush Database</button>
+</form>
+<br />
+<form method="post" asp-page-handler="GetAll">
+  <button>GetAll</button>
+</form>
+<br />
+<form method="post" asp-page-handler="Insert">
+  <button>Insert</button>
+</form>
+<br />
+<form method="post" asp-page-handler="Select">
+  <button>Select(Id=300)</button>
+</form>
+<br />
+<form method="post" asp-page-handler="SelectFilter">
+  <button>Select(FirstName.Contains("s"))</button>
+</form>
+<br />
+<form method="post" asp-page-handler="Delete">
+  <button>Delete (Id=200)</button>
+</form>
+<br />
+<form method="post" asp-page-handler="Update">
+  <button>Update (Id=100)</button>
+</form>
+<br />
+<hr />
+<div>
+  @foreach (var player in Model.People)
+  {
+    <p>@player.ToString()</p>
+  }
+</div>
